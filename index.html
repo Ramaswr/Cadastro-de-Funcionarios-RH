@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sistema RH</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Tela de Login -->
+  <div id="login-container" class="card login">
+    <header>Login do Sistema RH</header>
+    <form id="form-login">
+      <div class="form-row">
+        <div>
+          <label for="usuario">Usuário</label>
+          <input id="usuario" required placeholder="admin">
+        </div>
+        <div>
+          <label for="senha">Senha</label>
+          <input id="senha" type="password" required placeholder="••••••">
+        </div>
+      </div>
+      <div class="actions">
+        <button type="submit" class="btn btn-primary">Entrar</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Conteúdo do Sistema -->
+  <div id="app" style="display:none;">
+    <header>
+      <h1>Sistema de RH</h1>
+      <p>Cadastro de Funcionários por Departamento</p>
+    </header>
+
+    <main>
+      <!-- Formulário Funcionários -->
+      <section class="card">
+        <header>Novo Funcionário</header>
+        <form id="form-func">
+          <div class="form-row">
+            <div>
+              <label for="nome">Nome</label>
+              <input id="nome" required placeholder="Ex.: João Silva">
+            </div>
+            <div>
+              <label for="cpf">CPF</label>
+              <!-- CPF como password para privacidade -->
+              <input id="cpf" type="password" required placeholder="000.000.000-00" maxlength="14">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="cargo">Cargo</label>
+              <select id="cargo" required>
+                <option value="">Selecione...</option>
+                <option>Operário</option>
+                <option>Supervisor</option>
+                <option>Gerente</option>
+                <option>Secretária</option>
+                <option>Motorista</option>
+                <option>Vigia</option>
+                <option>TI (Júnior)</option>
+                <option>TI (Pleno)</option>
+                <option>TI (Sênior)</option>
+                <option>Analista de Sistemas</option>
+                <option>Administração</option>
+                <option>Colaborador</option>
+              </select>
+            </div>
+            <div>
+              <label for="salario">Salário (R$)</label>
+              <input id="salario" readonly>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="departamento">Departamento</label>
+              <!-- Agora o script.js vai preencher dinamicamente -->
+              <select id="departamento" required></select>
+            </div>
+            <div>
+              <label for="gerente">Gerente</label>
+              <!-- Também preenchido dinamicamente -->
+              <select id="gerente" required></select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="email">E-mail</label>
+              <input id="email" type="email" required placeholder="nome@empresa.com">
+            </div>
+            <div>
+              <label for="telefone">Telefone</label>
+              <input id="telefone" placeholder="(92) 3333-0000">
+            </div>
+          </div>
+
+          <div class="actions">
+            <button type="reset" class="btn btn-secondary">Limpar</button>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Tabela Funcionários -->
+      <section class="card">
+        <header>Funcionários Cadastrados</header>
+        <table id="tabela-funcionarios">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>CPF</th>
+              <th>Cargo</th>
+              <th>Salário</th>
+              <th>Departamento</th>
+              <th>Gerente</th>
+              <th>Contato</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
